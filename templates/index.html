@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hacker News Article Scraper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .article {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .article h2 {
+            margin-top: 0;
+        }
+        .article p {
+            margin: 5px 0;
+        }
+        .article a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hacker News Articles</h1>
+    
+    {% if articles %}
+        {% for article in articles %}
+            <div class="article">
+                <h2>{{ article.title }}</h2>
+                <p><strong>Author:</strong> {{ article.author }}</p>
+                <p><a href="{{ article.link }}" target="_blank">Read Article</a></p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No articles found.</p>
+    {% endif %}
+</body>
+</html>
